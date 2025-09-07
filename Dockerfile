@@ -1,5 +1,5 @@
 # Use an official OpenJDK runtime as a parent image
-FROM eclipse-temurin:17-jdk-jammy
+FROM eclipse-temurin:21-jdk-jammy
 
 # Set the working directory in the container
 WORKDIR /app
@@ -21,7 +21,7 @@ COPY src ./src
 RUN ./mvnw package -DskipTests
 
 # Final stage to create a smaller final image
-FROM eclipse-temurin:17-jre-jammy
+FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
 # Copy the packaged jar from the build stage (Update the filename if yours is different)
